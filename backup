@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -r sounds
+scp -rpi ~/Downloads/site/SoundGridServer.pem ubuntu@54.68.156.6:~/sounds sounds

@@ -1,0 +1,13 @@
+Fri Sep 12 2014 19:16:31 GMT+0000 (UTC)
+12 19:46:20 89.248.160.192 request  for /cgi-bin/php4
+12 19:46:20 89.248.160.192
+	Error: ENOENT, open '/home/ubuntu/sounds/cgi-bin/php4'
+12 19:46:26 89.248.160.192 request  for /cgi-bin/php5
+12 19:46:26 89.248.160.192
+	Error: ENOENT, open '/home/ubuntu/sounds/cgi-bin/php5'
+12 19:46:32 89.248.160.192 request  for /cgi-bin/php-cgi
+12 19:46:32 89.248.160.192
+	Error: ENOENT, open '/home/ubuntu/sounds/cgi-bin/php-cgi'
+12 19:46:38 89.248.160.192 request  for /cgi-bin/php.cgi
+12 19:46:38 89.248.160.192
+	Error: ENOENT, open '/home/ubuntu/sounds/cgi-bin/php.cgi'

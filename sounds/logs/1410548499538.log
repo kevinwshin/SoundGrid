@@ -1,0 +1,5 @@
+Fri Sep 12 2014 19:01:39 GMT+0000 (UTC)
+12 19:01:44 128.62.34.3 request  for /log
+12 19:01:44 128.62.34.3 respond with /home/ubuntu/sounds/logs/1410548499538.log as text/plain
+12 19:01:44 128.62.34.3 request  for /favicon.ico
+12 19:01:44 128.62.34.3 respond with /home/ubuntu/sounds/favicon.ico as image/x-icon
