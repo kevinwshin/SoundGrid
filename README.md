@@ -2,7 +2,7 @@ SoundGrid
 =========
 This holds source code and a few helpful scripts for a website.
 
-The site displays a full screen grid 15 tall by 12 wide. Each cell represents a note of a chromatic scale (starting from C at the bottom and increasing by a half step for each cell up to C at the top) in a 12 beat bar.
+The site displays a full screen grid 13 tall by 12 wide. Each cell represents a note of a chromatic scale (starting from C at the bottom and increasing by a half step for each cell up to C at the top) in a 12 beat bar.
 
 There is a 'beat bar' of a lighter color that sweeps across the screen from left to right. It activates all the notes in a column when it first hits the column, then moves to the next column on the next beat, wrapping from the right edge to the left edge.
 
