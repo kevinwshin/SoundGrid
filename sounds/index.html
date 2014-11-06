@@ -190,6 +190,23 @@
             <td class="cell" id="11,12" style="background: rgb(0, 0, 0);"></td>
          </tr>
       </table>
+
+      <div id="overlay_wrapper">
+         <div id="overlay">
+            <div id="overlay_text">
+               <p> Hey, this plays music (hopefully), turn your sound on.</p>
+               <p>Click a cell to toggle it on and off. Each column represents
+               a chromatic scale starting with C at the bottom and increasing
+               in pitch to C at the top. Additionally, each column also
+               represents a beat in a 12 beat measure.</p>
+               <p>The state of the grid is stored on the server, so you should
+               gather your friends and compose collaboratively.</p>
+               <p>The up/down arrow keys control the volume. Click anywhere to
+               dismiss this popup.</p>
+            </div>
+         </div>
+      </div>
+
       <script src = "/socket.io.js"></script>
       <script src = "/siteClient.js"></script>
    </body>
