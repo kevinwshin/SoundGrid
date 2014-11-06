@@ -135,9 +135,17 @@ socket.on('beat', playFullBar.bind(this, 0));
 //volume stuff now
 document.addEventListener('keydown', function(event){
    switch(event.keyCode){
-      case(38): gainNode.gain.value < 1.5 ? gainNode.gain.value += 0.05 : 0; break; //up arrow, 0 = no op
+      case(38): gainNode.gain.value < 1.5 ? gainNode.gain.value += 0.05 : 0; break; //up arrow, 0 = nop
       case(40): gainNode.gain.value > 0 ? gainNode.gain.value -= 0.05 : 0; break; //down arrow
    }
 }, false);
 
 document.getElementById('table').addEventListener('click', cellClicked);
+
+//start overlay stuff, a bit from kopepasah.com/tutorial/awesome-overlays-with-simple-css-javascript-html
+function(){
+   var wrapper = document.getElementById('overlay_wrapper')
+   wrapper.addEventListener('click', function(){
+      wrapper.parentNode.removeChild(wrapper)
+   }
+}()
