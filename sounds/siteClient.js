@@ -1,7 +1,7 @@
 //make it look okay for those damn noscripters
 document.getElementById('table').style.visibility = 'visible';
 
-var WIDTH = 8;
+var WIDTH = 12;
 var HEIGHT = 13;
 var BEAT_LENGTH = 800;
 var SERVER_NAME = 'kshin.duckdns.org';
