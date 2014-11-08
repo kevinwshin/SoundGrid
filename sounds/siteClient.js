@@ -4,7 +4,7 @@ document.getElementById('table').style.visibility = 'visible';
 var WIDTH = 12;
 var HEIGHT = 13;
 var BEAT_LENGTH = 800;
-var SERVER_NAME = 'kevinshin.org';
+var SERVER_NAME = 'www.kevinshin.org';
 
 var gainNode;
 var noteList = ['/sounds/C.wav', '/sounds/Db.wav', '/sounds/D.wav', '/sounds/Eb.wav', '/sounds/E.wav', '/sounds/F.wav', '/sounds/Gb.wav', '/sounds/G.wav', '/sounds/Ab.wav', '/sounds/A.wav', '/sounds/Bb.wav', '/sounds/B.wav', '/sounds/C+.wav'];
@@ -105,7 +105,7 @@ var toggleBeat = function(colNum, toggleOn){
 
 //informs the server that a cell was toggled
 var cellClicked = function(event){
-   console.log(event.target.style.backgroundColor + 'was clicked');
+   console.log(webColorToHex(event.target.style.backgroundColor) + 'was clicked');
    if(event.target.className == 'cell'){
       socket.emit('toggle-note', event.target.id);
    }
