@@ -142,7 +142,7 @@ document.addEventListener('keydown', function(event){
 
 document.getElementById('table').addEventListener('click', cellClicked);
 
-//start overlay stuff, a bit from kopepasah.com/tutorial/awesome-overlays-with-simple-css-javascript-html
+//start overlay stuff
 var overlay = function(){
    var wrapper = document.getElementById('overlay_wrapper')
    wrapper.addEventListener('click', function(){
