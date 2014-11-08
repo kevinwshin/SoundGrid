@@ -25,7 +25,14 @@ var loadSound = function(context, url, soundList, index){
 
 //plays the (noteList.length - 1 - num)th note from noteList
 var playNote = function(){
-   var context = new AudioContext();
+   //from www.html5rocks.com/en/tutorials/webaudio/intro
+   var context;
+   try{
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+      context = new AudioContext();
+   } catch(e){
+      alert('Your browser does not support the Web Audio API');
+   }
 
    //volume
    gainNode = context.createGain();
