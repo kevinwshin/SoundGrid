@@ -8,6 +8,6 @@ There is a 'beat bar' of a lighter color that sweeps across the screen from left
 
 This site is designed to be run from a server which users connect to. The server manages two events, a note change and the beginning of a bar. For each event, the server pings all the connected users, so that all the users can stay in sync. This means that all of the users connected to a server sees and hears (almost) the same things.
 
-The server was built to run on Amazon's AWS with DuckDNS pointing to it from kshin.duckdns.org to some Amazon IP address, so some of the code refers to that. Additionally, the utility scripts to connect to the server and to pull code and logs will probably only work for AWS.
+The server was built to run on Amazon's AWS with kevinshin.org pointing to some Amazon IP address, so some of the code refers to that. Additionally, the utility scripts to connect to the server and to pull code and logs will probably only work for AWS.
 
 Due to the completely unexpected volume of 'invalid requests' (and one odd event in which Amazon's security testing service probed my server for several hours until it crashed, presumably by accident), built-in logging was added to the server. I decided that a logging library was unnecessary and added a very light logging service (which should be in a separate file now that I think about it). The most recent log is exposed through www.kevinshin.org/log for checking (but mostly for giggles, there are a lot of random hack attempts).
