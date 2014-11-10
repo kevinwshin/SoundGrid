@@ -51,7 +51,11 @@ var playNote = function(){
          var source = context.createBufferSource();
          source.buffer = loadedSounds[row];
          source.connect(gainNode);
-         source.start();
+         try{
+            source.start();
+         } catch(e){
+            source.start(0, 0); //start immediately, pass null pointer for error codes
+         }
       }
    };
 }();
