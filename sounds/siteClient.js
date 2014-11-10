@@ -71,7 +71,11 @@ var webColorToHex = function(color){
       return color;
    }else{
       var matches = /^rgb\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)$/i.exec(color);
-      return '#' + byteToHex(matches[1]) + byteToHex(matches[2]) + byteToHex(matches[3]);
+      try{
+         return '#' + byteToHex(matches[1]) + byteToHex(matches[2]) + byteToHex(matches[3]);
+      } catch(e){
+         console.log( color );
+      }
    }
 };
 
@@ -109,8 +113,8 @@ var toggleBeat = function(colNum, toggleOn){
 
 //informs the server that a cell was toggled
 var cellClicked = function(event){
-   console.log(webColorToHex(event.target.style.backgroundColor) + 'was clicked');
    if(event.target.className == 'cell'){
+      console.log(webColorToHex(event.target.style.backgroundColor) + ' was clicked');
       socket.emit('toggle-note', event.target.id);
    }
 };
