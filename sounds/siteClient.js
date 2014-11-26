@@ -121,7 +121,7 @@ var cellClicked = function(event){
 
 //a function that plays the entire screen once, starting from the parameter
 var playFullBar = function(beat){
-   toggleBeat(beat, 1); //play the notes
+   toggleBeat(beat, true); //play the notes
    setTimeout(function(){
       toggleBeat(beat); //don't play any notes
    }, BEAT_LENGTH);
@@ -145,7 +145,7 @@ socket.on('init', function(grid){
 });
 
 socket.on('note-toggled', toggleNote);
-socket.on('beat', playFullBar.bind(this, 0));
+socket.on('down-beat', playFullBar.bind(this, 0));
 
 //volume stuff now
 document.addEventListener('keydown', function(event){

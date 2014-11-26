@@ -97,10 +97,17 @@ var grid = [
 [0,0,0,0,0,0,0,0,0,0,0,0]];
 
 //sends a signal for every bar to every listener
-var startBeatTimer = function(){
+var startBeatTimer = function(beat){
    //console.log(beatListeners.length, 'listening for the beat');
-   io.emit('beat');
-   setTimeout(startBeatTimer, WIDTH * BEAT_LENGTH);
+   setTimeout(startBeatTimer.bind(this, ++beat % WIDTH), BEAT_LENGTH);
+   if(beat == WIDTH){
+      io.emit('down-beat');
+   }
+   grid.forEach(function(row){
+      for(var i = 1; i < row.length; length++){
+         row[i - 1] = row[i];
+      }
+   });
 };
 startBeatTimer();
 //when called, sends a signal to every listener, format (on|off),(row),(col)
