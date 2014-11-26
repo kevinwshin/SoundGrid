@@ -2,7 +2,7 @@
 var WIDTH = 12;
 var HEIGHT = 13;
 var BEAT_LENGTH = 800;
-var SERVER_IP = '172.31.18.56';
+var SERVER_IP = '127.0.0.1';//'172.31.18.56';
 var LOG_NAME = '/logs/' + Date.now() + '.log';
 
 var url = require('url');
@@ -18,7 +18,7 @@ var serverLog = function(){
       log.write(' ');
       log.write(new Date().toLocaleTimeString());
       log.write(' ');
-      //pad and log first argument
+      //pad and log first argument as an ip address
       log.write(('     ' + arguments[0]).slice(-15));
       //log the rest
       for(var i = 1; i < arguments.length; i++){
