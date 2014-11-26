@@ -11,21 +11,22 @@ var http = require('http');
 
 //logging, the first argument is assumed to be an ip and is padded to 15 cols, everything else is printed regularly after that
 var serverLog = function(){
-   var log = fs.createWriteStream(__dirname + LOG_NAME, {flags: 'a', encoding: 'utf-8'});
-   log.write(new Date().toString());
-   return function(){
-      log.write('\n' + new Date().getDate());
-      log.write(' ');
-      log.write(new Date().toLocaleTimeString());
-      log.write(' ');
-      //pad and log first argument as an ip address
-      log.write(('     ' + arguments[0]).slice(-15));
-      //log the rest
-      for(var i = 1; i < arguments.length; i++){
-         log.write(arguments[i] ? arguments[i] : 'undefined');
-      }
-   };
-}();
+};
+//   var log = fs.createWriteStream(__dirname + LOG_NAME, {flags: 'a', encoding: 'utf-8'});
+//   log.write(new Date().toString());
+//   return function(){
+//      log.write('\n' + new Date().getDate());
+//      log.write(' ');
+//      log.write(new Date().toLocaleTimeString());
+//      log.write(' ');
+//      //pad and log first argument as an ip address
+//      log.write(('     ' + arguments[0]).slice(-15));
+//      //log the rest
+//      for(var i = 1; i < arguments.length; i++){
+//         log.write(arguments[i] ? arguments[i] : 'undefined');
+//      }
+//   };
+//}();
 
 //server setup
 var server = http.createServer(function(req, res){
