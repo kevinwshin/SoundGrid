@@ -100,7 +100,7 @@ var toggleBeat = function(colNum, toggleOn){
          case(colorTable[0]): col[i].style.backgroundColor = colorTable[1]; break;
          case(colorTable[1]): col[i].style.backgroundColor = colorTable[0]; break;
          case(colorTable[2]):
-            //******important******
+            //******important******(I no longer remember why this is important)
             if(toggleOn){
                playNote(i);
             }
@@ -121,7 +121,7 @@ var cellClicked = function(event){
 
 //a function that plays the entire screen once, starting from the parameter
 var playFullBar = function(beat){
-   toggleBeat(beat, 1); //play the notes
+   toggleBeat(beat, true); //play the notes
    setTimeout(function(){
       toggleBeat(beat); //don't play any notes
    }, BEAT_LENGTH);
