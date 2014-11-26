@@ -119,7 +119,7 @@ var cellClicked = function(event){
    }
 };
 
-//a function that plays the entire screen once, starting from the parameter
+//a function that plays from the (beat)th beat to the end of the bar
 var playFullBar = function(beat){
    toggleBeat(beat, true); //play the notes
    setTimeout(function(){
