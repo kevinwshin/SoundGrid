@@ -81,19 +81,19 @@ io.on('connection', function(socket){
 
 //game setup
 var grid = [
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0],
-[0,0,0,0,0,0,0,0,0,0,0,0]];
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false]];
 
 //sends a signal for every bar to every listener
 var startBeatTimer = function(){
@@ -105,7 +105,7 @@ startBeatTimer();
 //when called, sends a signal to every listener, format (on|off),(row),(col)
 var toggleNote = function(id){
    var rowCol = id.split(',').map(Number);
-   grid[rowCol[0]][rowCol[1]] = grid[rowCol[0]][rowCol[1]] ? 0 : 1;
+   grid[rowCol[0]][rowCol[1]] = grid[rowCol[0]][rowCol[1]] ? false : true;
    io.emit('note-toggled', id);
 };
 
