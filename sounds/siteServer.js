@@ -18,7 +18,7 @@ var serverLog = function(){
       log.write(' ');
       log.write(new Date().toLocaleTimeString());
       log.write(' ');
-      //pad and log first argument
+      //pad and log first argument as an ip address
       log.write(('     ' + arguments[0]).slice(-15));
       //log the rest
       for(var i = 1; i < arguments.length; i++){
