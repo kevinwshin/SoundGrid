@@ -123,7 +123,7 @@ var cellClicked = function(event){
 var playFullBar = function(beat){
    toggleBeat(beat, true); //play the notes
    setTimeout(function(){
-      toggleBeat(beat); //don't play any notes
+      toggleBeat(beat, false); //don't play any notes
    }, BEAT_LENGTH);
    if(beat < WIDTH){
       setTimeout(function(){
