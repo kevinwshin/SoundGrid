@@ -1,8 +1,8 @@
 #!/usr/bin/nodejs
-var WIDTH = 12;
+var WIDTH = 16;
 var HEIGHT = 13;
 var BEAT_LENGTH = 800;
-var SERVER_IP = '172.31.18.56';
+var SERVER_IP = '127.0.0.1';
 var LOG_NAME = '/logs/' + Date.now() + '.log';
 
 var url = require('url');
@@ -81,32 +81,60 @@ io.on('connection', function(socket){
 
 //game setup
 var grid = [
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false],
-[false,false,false,false,false,false,false,false,false,false,false,false]];
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]];
 
-//sends a signal for every bar to every listener
-var startBeatTimer = function(){
-   //console.log(beatListeners.length, 'listening for the beat');
-   io.emit('beat');
-   setTimeout(startBeatTimer, WIDTH * BEAT_LENGTH);
-};
-startBeatTimer();
 //when called, sends a signal to every listener, format (on|off),(row),(col)
 var toggleNote = function(id){
    var rowCol = id.split(',').map(Number);
    grid[rowCol[0]][rowCol[1]] = grid[rowCol[0]][rowCol[1]] ? false : true;
    io.emit('note-toggled', id);
 };
+
+//randomly toggle cells off and on
+var randomInt = function(limit){
+  return Math.floor(Math.random() * limit);
+};
+var toggleRandom = function(off, on){
+   var turnOffOrOn = function(directionOn, row, col){
+      if(!directionOn){
+         if(grid[row][col]){
+            toggleNote(row + ',' + col);
+         }
+      }else{
+         if(!grid[row][col]){
+            if((row == 0 || !grid[row - 1][col]) && (row == (HEIGHT - 1) || !grid[row + 1][col])){
+               toggleNote(row + ',' + col);
+            }
+         }
+      }
+   };
+   for(var i = 0; i < off; i++){
+      turnOffOrOn(false, randomInt(HEIGHT), randomInt(WIDTH))
+   }
+   for(var i = 0; i < on; i++){
+      turnOffOrOn(true, randomInt(HEIGHT), randomInt(WIDTH))
+   }
+}
+
+//sends a signal for every bar to every listener
+var startBeatTimer = function(){
+   //console.log(beatListeners.length, 'listening for the beat');
+   toggleRandom(18, 3);
+   io.emit('beat');
+   setTimeout(startBeatTimer, WIDTH * BEAT_LENGTH);
+};
+startBeatTimer();
 
 console.log('server ready');
